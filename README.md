@@ -58,4 +58,4 @@ Use androidx
 
 ### License
 
-[MIT]()
+[MIT](https://github.com/NenkaLab/FastScroll/blob/master/LICENSE)
