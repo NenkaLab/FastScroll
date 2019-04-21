@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<io.nenkalab.fastscroll.ScrollWrapper
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:id="@+id/wrapper"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end|center"
+        tools:ignore="UnusedAttribute">
+        <io.nenkalab.fastscroll.Scroll
+                android:id="@+id/handle"
+                android:background="@null"
+                android:thumb="@drawable/scroll_thumb"
+                android:thumbTint="#3985FF"
+                android:paddingStart="32dp"
+                android:paddingEnd="32dp"
+                android:paddingHorizontal="32dp"
+                android:progressDrawable="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+    </io.nenkalab.fastscroll.ScrollWrapper>
