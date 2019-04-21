@@ -1,5 +1,7 @@
 # FastScroll 
 
+FastScroll UI for ScrollView and EditText
+
 Use androidx
 
 ## File
