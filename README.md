@@ -55,3 +55,7 @@ Use androidx
     app:autoHide="boolean"
     app:scrollThumbRotation="enum[start, end]" />
 ```
+
+### License
+
+[MIT]()
