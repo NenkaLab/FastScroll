@@ -4,8 +4,6 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
-apply plugin: 'com.novoda.bintray-release'
-
 android {
     compileSdkVersion 28
 
@@ -28,34 +26,10 @@ android {
 
 dependencies {
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0-alpha04'
-    implementation 'androidx.core:core-ktx:1.1.0-alpha05'
-    implementation 'com.google.android.material:material:1.1.0-alpha05'
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha05'
+    implementation 'androidx.core:core-ktx:1.2.0-alpha01'
+    implementation 'com.google.android.material:material:1.1.0-alpha06'
     testImplementation 'junit:junit:4.13-beta-2'
-    androidTestImplementation 'androidx.test:runner:1.2.0-alpha04'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-alpha04'
-}
-
-task deleteOldJar(type: Delete) {
-    delete 'release/FastScroll.jar'
-}
-
-task exportJar(type: Copy) {
-    from('build/intermediates/bundles/release/')
-    into('release/')
-    include('classes.jar')
-    rename('classes.jar', 'FastScroll.jar')
-}
-
-exportJar.dependsOn(deleteOldJar, build)
-
-publish {
-    userOrg = 'nenka-lab'
-    groupId = 'io.nenkalab'
-    artifactId = 'fastscroll'
-    publishVersion = '0.1.0'
-    desc = 'FastScroll UI for ScrollView and EditText'
-    website = 'https://github.com/NenkaLab/FastScroll'
-    issueTracker = "${website}/issues"
-    repository = "${website}.git"
+    androidTestImplementation 'androidx.test:runner:1.2.0-beta01'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-beta01'
 }
