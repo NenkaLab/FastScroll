@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 
 import androidx.core.view.ViewCompat
+import kotlin.math.max
 
 open class ScrollWrapper @JvmOverloads constructor(
     context: Context,
@@ -41,19 +42,19 @@ open class ScrollWrapper @JvmOverloads constructor(
             val lp = seekBar.layoutParams as LayoutParams
 
             lp.width = ViewGroup.LayoutParams.WRAP_CONTENT
-            lp.height = Math.max(0, h - vPadding)
+            lp.height = max(0, h - vPadding)
             seekBar.layoutParams = lp
 
             seekBar.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED)
 
             val seekBarMeasuredWidth = seekBar.measuredWidth
             seekBar.measure(
-                MeasureSpec.makeMeasureSpec(Math.max(0, w - hPadding), MeasureSpec.AT_MOST),
-                MeasureSpec.makeMeasureSpec(Math.max(0, h - vPadding), MeasureSpec.EXACTLY)
+                MeasureSpec.makeMeasureSpec(max(0, w - hPadding), MeasureSpec.AT_MOST),
+                MeasureSpec.makeMeasureSpec(max(0, h - vPadding), MeasureSpec.EXACTLY)
             )
 
             lp.gravity = Gravity.TOP or Gravity.START
-            lp.leftMargin = (Math.max(0, w - hPadding) - seekBarMeasuredWidth) / 2
+            lp.leftMargin = (max(0, w - hPadding) - seekBarMeasuredWidth) / 2
             seekBar.layoutParams = lp
         }
 
@@ -67,8 +68,8 @@ open class ScrollWrapper @JvmOverloads constructor(
             val hPadding = paddingLeft + paddingRight
             val vPadding = paddingTop + paddingBottom
             seekBar.measure(
-                MeasureSpec.makeMeasureSpec(Math.max(0, h - vPadding), MeasureSpec.EXACTLY),
-                MeasureSpec.makeMeasureSpec(Math.max(0, w - hPadding), MeasureSpec.AT_MOST)
+                MeasureSpec.makeMeasureSpec(max(0, h - vPadding), MeasureSpec.EXACTLY),
+                MeasureSpec.makeMeasureSpec(max(0, w - hPadding), MeasureSpec.AT_MOST)
             )
         }
 
@@ -89,9 +90,9 @@ open class ScrollWrapper @JvmOverloads constructor(
             val hPadding = paddingLeft + paddingRight
             val vPadding = paddingTop + paddingBottom
             val innerContentWidthMeasureSpec =
-                MeasureSpec.makeMeasureSpec(Math.max(0, widthSize - hPadding), widthMode)
+                MeasureSpec.makeMeasureSpec(max(0, widthSize - hPadding), widthMode)
             val innerContentHeightMeasureSpec =
-                MeasureSpec.makeMeasureSpec(Math.max(0, heightSize - vPadding), heightMode)
+                MeasureSpec.makeMeasureSpec(max(0, heightSize - vPadding), heightMode)
 
             if (useViewRotation()) {
                 seekBar.measure(innerContentHeightMeasureSpec, innerContentWidthMeasureSpec)
@@ -126,15 +127,15 @@ open class ScrollWrapper @JvmOverloads constructor(
             val seekBarMeasuredHeight = seekBar.measuredHeight
             val hPadding = paddingLeft + paddingRight
             val vPadding = paddingTop + paddingBottom
-            val hOffset = (Math.max(0, w - hPadding) - seekBarMeasuredHeight) * 0.5f
+            val hOffset = (max(0, w - hPadding) - seekBarMeasuredHeight) * 0.5f
             val lp = seekBar.layoutParams
 
-            lp.width = Math.max(0, h - vPadding)
+            lp.width = max(0, h - vPadding)
             lp.height = ViewGroup.LayoutParams.WRAP_CONTENT
 
             seekBar.layoutParams = lp
 
-            seekBar.pivotX = if (isLTR) 0F else Math.max(0, h - vPadding).toFloat()
+            seekBar.pivotX = if (isLTR) 0F else max(0, h - vPadding).toFloat()
             seekBar.pivotY = 0F
 
             when (rotationAngle) {

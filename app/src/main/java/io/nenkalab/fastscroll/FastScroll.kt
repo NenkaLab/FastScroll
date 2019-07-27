@@ -9,7 +9,6 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
-import android.os.Looper
 import android.util.AttributeSet
 import android.view.*
 import android.view.ViewTreeObserver.*
@@ -232,9 +231,12 @@ class FastScroll : RelativeLayout {
         mTimer = Timer()
         mTimer?.schedule(timerTask {
             try {
-                Looper.prepare()
-                hide()
-                Looper.loop()
+                this@FastScroll.post {
+                    try {
+                        hide()
+                    } catch (ignore: Exception) {
+                    }
+                }
             } catch (ignore: Exception) {
             }
         }, 1000)
