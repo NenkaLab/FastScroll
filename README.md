@@ -56,6 +56,10 @@ Use androidx
     app:scrollThumbRotation="enum[start, end]" />
 ```
 
+### Image
+
+![Scroll](https://raw.githubusercontent.com/NenkaLab/FastScroll/master/20191216_151107.jpg)
+
 ### License
 
 [MIT](https://github.com/NenkaLab/FastScroll/blob/master/LICENSE)
